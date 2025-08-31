@@ -761,7 +761,7 @@ export default function SmokeyCursor({
     let divergence: FBO;
     let curlFBO: FBO;
     let pressureFBO: DoubleFBO;
-
+// hgdd
     // WebGL Programs
     const copyProgram = new Program(baseVertexShader, copyShader);
     const clearProgram = new Program(baseVertexShader, clearShader);

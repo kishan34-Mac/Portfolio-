@@ -47,18 +47,18 @@ All colors MUST be HSL.
     --hero-secondary: 190 95% 50%;
     --section-bg: 210 25% 98%;
     --card-hover: 210 40% 96%;
-    
+
     /* Gradients */
     --gradient-hero: linear-gradient(135deg, hsl(210 100% 8%) 0%, hsl(210 80% 15%) 50%, hsl(190 95% 50%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
     --gradient-button: linear-gradient(135deg, hsl(190 95% 50%) 0%, hsl(210 90% 60%) 100%);
-    
+
     /* Shadows */
     --shadow-soft: 0 2px 20px hsl(210 40% 90%);
     --shadow-medium: 0 8px 32px hsl(210 40% 85%);
     --shadow-strong: 0 16px 48px hsl(210 40% 80%);
     --shadow-glow: 0 0 40px hsl(190 95% 50% / 0.3);
-    
+
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -109,18 +109,18 @@ All colors MUST be HSL.
     --border: 210 40% 15%;
     --input: 210 40% 15%;
     --ring: 190 95% 50%;
-    
+
     /* Dark mode custom colors */
     --hero-primary: 210 100% 4%;
     --hero-secondary: 190 95% 50%;
     --section-bg: 210 100% 6%;
     --card-hover: 210 40% 12%;
-    
+
     /* Dark gradients */
     --gradient-hero: linear-gradient(135deg, hsl(210 100% 4%) 0%, hsl(210 80% 8%) 50%, hsl(190 95% 50%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(210 100% 6%) 0%, hsl(210 40% 8%) 100%);
     --gradient-button: linear-gradient(135deg, hsl(190 95% 50%) 0%, hsl(210 90% 60%) 100%);
-    
+
     /* Dark shadows */
     --shadow-soft: 0 2px 20px hsl(210 100% 2%);
     --shadow-medium: 0 8px 32px hsl(210 100% 2%);
@@ -135,6 +135,10 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+  .theme {
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  }
 }
 
 @layer base {
@@ -146,4 +150,25 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
- 
+
+/* ---break---
+*/
+
+@theme inline {
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}

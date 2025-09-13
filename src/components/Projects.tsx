@@ -159,7 +159,7 @@ category: 'Web App',
           </motion.div>
 
           {/* Filter Buttons */}
-          <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+          {/* <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
             {filters.map((filter) => (
               <Button
                 key={filter}
@@ -174,7 +174,29 @@ category: 'Web App',
                 {filter}
               </Button>
             ))}
-          </motion.div>
+          </motion.div> */}
+         <motion.div
+  variants={itemVariants}
+  className="flex flex-wrap justify-center gap-4 mb-12"
+>
+  {filters.map((filter) => (
+    <button
+      key={filter}
+      onClick={() => setActiveFilter(filter)}
+      className={`px-6 py-2 rounded-full font-medium transition-all duration-300 border ${
+        activeFilter === filter
+          ? // ✅ Active button (gradient pill)
+            "bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-white shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.6)]"
+          : // ✅ Inactive button (adaptive light/dark styles)
+            "border-gray-400 text-gray-700 dark:border-white/30 dark:text-white hover:border-purple-400 hover:text-purple-600 dark:hover:text-white hover:bg-purple-500/10"
+      }`}
+    >
+      {filter}
+    </button>
+  ))}
+</motion.div>
+
+
 
           {/* Projects Grid */}
           <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

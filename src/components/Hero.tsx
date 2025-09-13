@@ -137,7 +137,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
               >
-                <Button
+                {/* <Button
                   onClick={() => scrollToSection('projects')}
                   size="lg"
                   className="bg-hero-secondary text-hero-primary hover:bg-hero-secondary/90 hover:shadow-glow transition-all duration-300 font-semibold px-8"
@@ -151,7 +151,28 @@ const Hero = () => {
                   className="border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 px-8"
                 >
                   Let's Talk
-                </Button>
+                </Button> */}
+                
+                <div className="flex gap-4">
+  {/* View Projects Button */}
+  <button
+    onClick={() => scrollToSection('projects')}
+    className="border border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 px-8 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 font-semibold shadow-lg flex items-center gap-2"
+  >
+    View Projects
+    <span>↓</span>
+  </button>
+
+  {/* Contact Me Button */}
+  <button
+    onClick={() => scrollToSection('contact')}
+    className="border border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 px-8 py-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 font-semibold shadow-lg"
+  >
+    Contact Me
+  </button>
+</div>
+
+
               </motion.div>
 
               <motion.div 

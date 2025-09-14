@@ -179,7 +179,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="flex items-center gap-6 justify-center lg:justify-start"
               >
-                {[
+                {/* {[
                   { icon: Github, href: 'https://github.com/kishan34-Mac', label: 'GitHub' },
                   { icon: Linkedin, href: 'https://www.linkedin.com/in/kishan-singh-a28364215/', label: 'LinkedIn' },
                   { icon: Mail, href: 'mailto:jsmith80769@gmail.com', label: 'Email' }
@@ -195,7 +195,7 @@ const Hero = () => {
                   >
                     <Icon className="w-6 h-6 text-white group-hover:text-hero-secondary transition-colors duration-300" />
                   </motion.a>
-                ))}
+                ))} */}
               </motion.div>
             </div>
 

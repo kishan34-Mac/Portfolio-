@@ -389,9 +389,9 @@
 // };
 
 // export default Navbar;
- import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun, Download } from 'lucide-react';
+import { Menu, X, Moon, Sun, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -458,7 +458,7 @@ const Navbar = () => {
       transition={{ type: "spring", stiffness: 80, damping: 15 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled 
-          ? 'bg-background/70 backdrop-blur-xl shadow-lg border-b border-border/40' 
+          ? 'bg-white/80 dark:bg-black/70 backdrop-blur-xl shadow-md border-b border-gray-200 dark:border-white/10' 
           : 'bg-transparent'
       }`}
     >
@@ -481,11 +481,11 @@ const Navbar = () => {
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                whileHover={{ scale: 1.05 }}
-                className={`relative px-3 py-2 text-sm font-medium tracking-wide transition-colors duration-200 ${
+                whileHover={{ scale: 1.08 }}
+                className={`relative px-3 py-2 text-sm font-bold tracking-wide transition-colors duration-200 ${
                   activeSection === item.id
-                    ? 'text-accent'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? 'bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
+                    : 'text-gray-900 dark:text-gray-100 hover:text-indigo-600 dark:hover:text-indigo-400'
                 }`}
               >
                 {item.label}
@@ -500,17 +500,38 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Actions */}
+          {/* Actions + Socials */}
           <div className="hidden md:flex items-center space-x-4">
+            {/* Social Icons */}
+            {[
+              { icon: Github, href: 'https://github.com/kishan34-Mac', label: 'GitHub' },
+              { icon: Linkedin, href: 'https://www.linkedin.com/in/kishan-singh-a28364215/', label: 'LinkedIn' },
+              { icon: Mail, href: 'mailto:jsmith80769@gmail.com', label: 'Email' }
+            ].map(({ icon: Icon, href, label }) => (
+              <motion.a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 bg-gray-100 dark:bg-white/10 rounded-full border border-gray-300 dark:border-white/20 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 group"
+              >
+                <Icon className="w-5 h-5 text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300" />
+              </motion.a>
+            ))}
+
+            {/* Dark Mode Toggle */}
             <Button
               variant="ghost"
               size="sm"
               onClick={toggleDarkMode}
               className="h-9 w-9 p-0 rounded-full hover:rotate-180 transition-transform"
             >
-              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {darkMode ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-indigo-600" />}
             </Button>
 
+            {/* Resume */}
             <Button
               onClick={downloadResume}
               className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full"
@@ -529,7 +550,7 @@ const Navbar = () => {
               onClick={toggleDarkMode}
               className="h-9 w-9 p-0 rounded-full hover:rotate-180 transition-transform"
             >
-              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {darkMode ? <Sun className="h-5 w-5 text-yellow-500" /> : <Moon className="h-5 w-5 text-indigo-600" />}
             </Button>
             
             <Button
@@ -542,40 +563,6 @@ const Navbar = () => {
             </Button>
           </div>
         </div>
-
-        {/* Mobile Nav */}
-        <motion.div
-          initial={false}
-          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-          transition={{ duration: 0.4 }}
-          className="md:hidden overflow-hidden"
-        >
-          <div className="py-4 space-y-4 border-t border-border/40">
-            {navItems.map((item) => (
-              <motion.button
-                key={item.id}
-                whileHover={{ x: 6 }}
-                onClick={() => scrollToSection(item.id)}
-                className={`block w-full text-left px-4 py-2 text-base font-medium rounded-md ${
-                  activeSection === item.id
-                    ? 'text-accent bg-accent/10'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
-              >
-                {item.label}
-              </motion.button>
-            ))}
-
-            <Button
-              onClick={downloadResume}
-              className="w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300 rounded-full"
-              size="sm"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              Download Resume
-            </Button>
-          </div>
-        </motion.div>
       </div>
     </motion.nav>
   );

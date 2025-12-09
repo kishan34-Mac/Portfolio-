@@ -113,7 +113,7 @@ const Hero = () => {
                   Hello, I'm
                 </p>
                 <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-                  Kishan <span className="bg-gradient-to-r from-hero-secondary to-white bg-clip-text text-transparent">Singh</span>
+                  Kishan <span className="bg-gradient-to-r from-hero-secondary to-white bg-clip-text text-transparent">Singh & AI Practitioner</span>
                 </h1>
               </motion.div>
 

@@ -9,7 +9,7 @@ import React from "react";
 import SmokeyCursor from "./components/SmokeyCursor";
 
 const queryClient = new QueryClient();
-
+// nfew
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
